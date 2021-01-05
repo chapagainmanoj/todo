@@ -1,5 +1,5 @@
 from .tables import todos
-from db import database
+from resources import database
 
 async def list_todo(request):
     query = todos.select()

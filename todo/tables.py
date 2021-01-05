@@ -7,9 +7,8 @@ from sqlalchemy import (
     DateTime,
 )
 from sqlalchemy.sql import func
-from db import metadata
+from resources import metadata
 
-import pdb; pdb.set_trace()
 todos = Table(
     "todos",
     metadata,
