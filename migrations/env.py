@@ -9,8 +9,9 @@ from alembic import context
 # access to the values within the .ini file in use.
 config = context.config
 
-import pdb; pdb.set_trace()
-from db import metadata, DATABASE_URL
+# import pdb; pdb.set_trace()
+from resources import metadata
+from settings import DATABASE_URL
 config.set_main_option('sqlalchemy.url', str(DATABASE_URL))
 target_metadata = metadata
 
