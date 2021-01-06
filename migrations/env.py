@@ -5,13 +5,18 @@ from sqlalchemy import pool
 
 from alembic import context
 
+import sys
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
-# import pdb; pdb.set_trace()
-from resources import metadata
 from settings import DATABASE_URL
+from resources import metadata
 config.set_main_option('sqlalchemy.url', str(DATABASE_URL))
 target_metadata = metadata
 
