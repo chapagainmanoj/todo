@@ -1,11 +1,8 @@
 from ariadne import (
-    QueryType,
     gql,
     make_executable_schema,
     ObjectType,
 )
-
-from ariadne.asgi import GraphQL
 
 from .queries import resolve_todos, resolve_todo
 from .mutations import resolve_create_todo, resolve_complete_todo, resolve_delete_todo
@@ -53,7 +50,6 @@ mutation.set_field("completeTodo", resolve_complete_todo)
 mutation.set_field("deleteTodo", resolve_delete_todo)
 
 schema = make_executable_schema(type_defs, query, mutation)
-hello_gql = GraphQL(schema, debug=True)
 
 # mutation newTodo {
 #   createTodo(title:"Complete todo app") {

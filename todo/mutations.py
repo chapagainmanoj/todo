@@ -1,7 +1,8 @@
 from resources import database
 from .tables import todos
 
-async def resolve_create_todo(_, info, *args, **kwargs):
+
+async def resolve_create_todo(_, info, **kwargs):
     try:
         title = kwargs.get('title')
         completed = kwargs.get('completed', False)

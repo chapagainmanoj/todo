@@ -3,20 +3,18 @@ from sqlalchemy import (
     Column, 
     Integer, 
     String, 
-    Boolean,
     DateTime,
     ForeignKey
 )
 from sqlalchemy.sql import func
 from resources import metadata
 
-todos = Table(
-    "todos",
+users = Table(
+    "user",
     metadata,
     Column("id", Integer, primary_key=True),
-    Column("title", String),
+    Column("username", String),
+    Column("password", String),
     Column("created_on", DateTime(timezone=True), server_default=func.now()),
-    Column("modified_on", DateTime(timezone=True), onupdate=func.now()),
-    Column("completed", Boolean),
-    Column("owner", Integer, ForeignKey("user.id"))
 )
+

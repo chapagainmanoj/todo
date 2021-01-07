@@ -1,7 +1,8 @@
-from starlette.routing import Route
-from .views import list_todo, add_todo
+from starlette.routing import Mount
+from ariadne.asgi import GraphQL
+from .schema import schema
+from settings import DEBUG
 
 routes = [
-    Route("/todo", endpoint=list_todo, methods=["GET"]),
-    Route("/todo", endpoint=add_todo, methods=["POST"]),
+    Mount('/api/todo', GraphQL(schema, debug=DEBUG)),
 ]
